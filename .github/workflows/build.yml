@@ -15,6 +15,7 @@ jobs:
     - uses: r-lib/actions/setup-r@v1
     - name: Install Package Dependencies
       run: |-
+        export GITHUB_PAT=${{ secrets.PAT }}
         Rscript -e "install.packages('remotes')"
         Rscript -e "remotes::install_github('gadenbuie/tweetrmd')"
         Rscript -e "remotes::install_github('rstudio/webshot2')"
